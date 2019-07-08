@@ -1,22 +1,15 @@
 <template>
   <v-layout column>
-    <v-flex xs6 offset-xs3 >
-      <panel title="ثبت نام" style="margin-top:50px">
-        <div class="pl-4 pr-4 pt-2 pb-2">
-          <form name="tab-tracker-form" autocomplete="off">
-            <v-text-field label="ایمیل" v-model="email"></v-text-field>
-            <br>
-            <v-text-field
-              label="رمز عبور"
-              type="password"
-              v-model="password"
-              autocomplete="new-password"
-            ></v-text-field>
-          </form>
-          <br>
+    <v-flex xs6 offset-xs3>
+      <panel title="ورود" style="margin-top:50px;width:500px">
+        <br />
+        <div class="pl-4 pr-4 pt-4 pb-4">
+          <v-text-field class="txt" label="ایمیل" v-model="email"></v-text-field>
+          <br />
+          <v-text-field class="txt" label="رمز عبور" type="password" v-model="password"></v-text-field>
           <v-alert :value="error" v-html="error" color="error" icon="warning" outline></v-alert>
-          <br>
-          <v-btn class="deep-purple darken-4 txt" @click="register()">ثبت نام</v-btn>
+          <br />
+          <v-btn class="deep-purple darken-4 txt" @click="login()">ورود</v-btn>
         </div>
       </panel>
     </v-flex>
@@ -36,15 +29,15 @@ export default {
     };
   },
   methods: {
-    async register() {
+    async login() {
       try {
-        const response = await AuthenticationService.register({
+        const response = await AuthenticationService.login({
           email: this.email,
           password: this.password
         });
         this.$store.dispatch("setToken", response.data.token);
         this.$store.dispatch("setUser", response.data.user);
-        this.$router.push({ name: "login" });
+        this.$router.push({ name: "songs" });
       } catch (error) {
         this.error = error.response.data.error;
       }
@@ -56,9 +49,9 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .reg {
-  margin-top: 60px;
-  height: auto;
-  width: 500px;
+  width: 450px;
+  max-width: 500px;
+  margin-right: 250px;
 }
 .txt {
   color: white;

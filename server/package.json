@@ -6,17 +6,21 @@
   "scripts": {
     "start": "nodemon --watch src --exec npm run server",
     "server": "node src/app.js",
-    "lint": "eslint **/*.js"
+    "lint": "eslint **/*.js",
+    "seed": "node ./seed"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^3.0.6",
+    "bluebird": "^3.5.4",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "eslint": "^5.16.0",
     "express": "^4.16.4",
     "joi": "^14.3.1",
+    "jsonwebtoken": "^8.5.1",
     "morgan": "^1.9.1",
     "nodemon": "^1.18.11",
     "sequelize": "^5.8.1",
