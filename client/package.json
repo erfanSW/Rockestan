@@ -16,7 +16,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "eslint": "^5.16.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.13",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
     "vue-youtube": "^1.3.4",
