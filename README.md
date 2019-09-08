@@ -1,7 +1,7 @@
 # Rockestan
 
 
-## ## Install the dependencies
+## Install the dependencies
 ```bash
 npm install
 ```
